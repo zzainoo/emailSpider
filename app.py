@@ -11,6 +11,14 @@ import logging
 email_regex = '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}'
 init()
 data = Queue()
+
+try:
+    data.add("https://www.quantstart.com/articles/Parallelising-Python-with-Threading-and-Multiprocessing/")
+    data.add("https://www.google.com")
+    data.add("https://en.wikipedia.org/wiki/Email_address")
+except:
+    pass
+
 print("script is running .........")
 print("By zzainoo !")
 time.sleep(3)
@@ -62,3 +70,13 @@ for x in threads:
 
 
 
+flag = True
+while flag:
+    v = 0
+    for x in threads:
+        if x.is_alive() == False:
+            v += 0
+    if v == 4:
+        flag = False
+    else:
+        v = 0

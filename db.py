@@ -1,7 +1,7 @@
 import peewee
 
 
-db = peewee.SqliteDatabase('people.db')
+db = peewee.SqliteDatabase('./dist/people.db')
 
 def init():
     db.create_tables([Link, Email])

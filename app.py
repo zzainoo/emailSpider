@@ -5,6 +5,7 @@ import threading
 from db import *
 from ds import Queue
 import time
+import logging
 
 email_regex = '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}'
 init()
@@ -12,6 +13,7 @@ data = Queue()
 print("script is running .........")
 print("By zzainoo !")
 time.sleep(3)
+logging.basicConfig(filename="app.log", level=logging.INFO)
 
 def extractLinks():
     try:
@@ -33,6 +35,7 @@ def insertEmailDb(email):
     try:
         Email.create(Email=email)
         print(email + '-----------> EXTRACTED!!!')
+        logging.info(email + '--------> EXTRACTED!!!')
     except peewee.IntegrityError:
         pass
 

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import re
 import bs4
 import requests
@@ -13,7 +14,7 @@ data = Queue()
 print("script is running .........")
 print("By zzainoo !")
 time.sleep(3)
-logging.basicConfig(filename="app.log", level=logging.INFO)
+logging.basicConfig(filename="/home/zano/emailSpider/app.log", level=logging.INFO)
 
 def extractLinks():
     try:
@@ -59,3 +60,8 @@ t3.start()
 print("thread 3 started")
 t4.start()
 print("thread 4 started")
+
+t1.join()
+t2.join()
+t3.join()
+t4.join()

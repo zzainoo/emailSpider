@@ -41,28 +41,24 @@ def insertEmailDb(email):
         pass
 
 
-# class Thread (threading.Thread):
-#    def __init__(self):
-#       threading.Thread.__init__(self)
-#    def run(self):
-#       extractLinks()
+
+
+
+threads = []
+
 
 t1 = threading.Thread(target=extractLinks)
 t2 = threading.Thread(target=extractLinks)
 t3 = threading.Thread(target=extractLinks)
 t4 = threading.Thread(target=extractLinks)
 
+threads.append(t1)
+threads.append(t2)
+threads.append(t3)
+threads.append(t4)
 
-t1.start()
-print("thread 1 started")
-t2.start()
-print("thread 2 started")
-t3.start()
-print("thread 3 started")
-t4.start()
-print("thread 4 started")
+for x in threads:
+    x.start()
 
-# t1.join()
-# t2.join()
-# t3.join()
-# t4.join()
+
+

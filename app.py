@@ -41,16 +41,17 @@ def insertEmailDb(email):
         pass
 
 
-class Thread (threading.Thread):
-   def __init__(self):
-      threading.Thread.__init__(self)
-   def run(self):
-      extractLinks()
+# class Thread (threading.Thread):
+#    def __init__(self):
+#       threading.Thread.__init__(self)
+#    def run(self):
+#       extractLinks()
 
-t1 = Thread()
-t2 = Thread()
-t3 = Thread()
-t4 = Thread()
+t1 = threading.Thread(target=extractLinks)
+t2 = threading.Thread(target=extractLinks)
+t3 = threading.Thread(target=extractLinks)
+t4 = threading.Thread(target=extractLinks)
+
 
 t1.start()
 print("thread 1 started")
@@ -61,7 +62,7 @@ print("thread 3 started")
 t4.start()
 print("thread 4 started")
 
-t1.join()
-t2.join()
-t3.join()
-t4.join()
+# t1.join()
+# t2.join()
+# t3.join()
+# t4.join()
